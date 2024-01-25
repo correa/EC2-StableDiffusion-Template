@@ -3,7 +3,7 @@
 # disable the restart dialogue and install several packages
 sudo sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
 sudo apt-get update && apt-get upgrade -y
-sudo apt install wget git git-lfs zip unzip rsync ffmpeg wget python3 python3-pip python3-venv python3-tk build-essential net-tools -y --no-install-recommends
+sudo apt install wget git git-lfs zip unzip rsync ffmpeg wget build-essential python3 python3-pip python3-venv python3-tk python3-dev net-tools -y --no-install-recommends
 
 # Install NVidia
 sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" -y
@@ -77,12 +77,12 @@ pip3 install -U --no-cache-dir jupyterlab \
         ipywidgets \
         gdown
 
-sudo cp $script_path/systemd/jupyterlab-ubuntu.service
+sudo cp $script_path/systemd/jupyterlab-ubuntu.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable jupyterlab-ubuntu.service
 sudo systemctl start jupyterlab-ubuntu.service
 
-sudo cp $script_path/systemd/kohya-ss.service
+sudo cp $script_path/systemd/kohya-ss.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable kohya-ss.service
 sudo systemctl start kohya-ss.service
