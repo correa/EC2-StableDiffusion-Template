@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=ubuntu
 WorkingDirectory=/home/ubuntu/kohya-ss
-ExecStart=/home/ubuntu/kohya_ss/gui.sh --listen 127.0.0.1 --server_port 3011 --headless
+ExecStart=/home/ubuntu/kohya_ss/gui.sh --listen 127.0.0.1 --server_port 3010 --headless
 
 [Install]
 WantedBy=multi-user.target
