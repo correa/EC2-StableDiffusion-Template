@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=ubuntu
 Environment="JUPYTER_CONFIG_DIR=/home/ubuntu/.jupyter"
-ExecStart=/usr/local/bin/jupyter lab --no-browser --ip=127.0.0.1 --port=8888 --NotebookApp.notebook_dir=/home/ubuntu
+ExecStart=/home/ubuntu/.local/bin/jupyter lab --no-browser --ip=127.0.0.1 --port=8888 --NotebookApp.notebook_dir=/home/ubuntu
 
 [Install]
 WantedBy=multi-user.target
