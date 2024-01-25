@@ -57,10 +57,10 @@ echo "CUDA" > stable-diffusion-webui/extensions/sd-webui-reactor/last_device.txt
 wget https://raw.githubusercontent.com/Douleb/SDXL-750-Styles-GPT4-/main/styles.csv -O stable-diffusion-webui/styles.csv
 
 # Download models
-wget -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors &
-wget -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors &
-wget -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.safetensors &
-wget -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0/resolve/main/dreamlike-photoreal-2.0.safetensors &
+wget -q -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors &
+wget -q -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors &
+wget -q -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.safetensors &
+wget -q -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0/resolve/main/dreamlike-photoreal-2.0.safetensors &
 
 # install Koya_ss
 git clone https://github.com/bmaltais/kohya_ss.git
@@ -81,6 +81,11 @@ sudo cp $script_path/systemd/jupyterlab-ubuntu.service
 sudo systemctl daemon-reload
 sudo systemctl enable jupyterlab-ubuntu.service
 sudo systemctl start jupyterlab-ubuntu.service
+
+sudo cp $script_path/systemd/kohya-ss.service
+sudo systemctl daemon-reload
+sudo systemctl enable kohya-ss.service
+sudo systemctl start kohya-ss.service
 
 chown -R ubuntu:ubuntu $base_path
 if [ "$EUID" -ne 0 ]; then
