@@ -32,15 +32,8 @@ python3 -m venv --system-site-packages $base_path/stable-diffusion-webui/venv &&
     source $base_path/stable-diffusion-webui/venv/bin/activate && \
     find $base_path/stable-diffusion-webui -type f -name 'requirements.txt' -execdir pip3 install -r {} \;
 
-    pip3 install -r stable-diffusion-webui/extensions/deforum/requirements.txt
-    pip3 install -r stable-diffusion-webui/extensions/sd-webui-controlnet/requirements.txt
-    pip3 install -r stable-diffusion-webui/extensions/sd-webui-reactor/requirements.txt
-    pip3 install -r stable-diffusion-webui/extensions/sd-webui-reactor/requirements.txt
     pip3 install onnxruntime-gpu insightface
-    pip3 install -r stable-diffusion-webui/extensions/infinite-image-browsing/requirements.txt
     python3 stable-diffusion-webui/extensions/adetailer/install.py
-    pip3 install -r stable-diffusion-webui/extensions/sd_civitai_extension/requirements.txt
-    pip3 install -r stable-diffusion-webui/extensions/sd_dreambooth_extension/requirements.txt
     
 
     # dependecies inpaint anything extension
@@ -68,6 +61,7 @@ python3 -m venv --system-site-packages $base_path/kohya_ss/venv && \
     source $base_path/kohya_ss/venv/bin/activate && \
     pip3 install torch torchvision torchaudio xformers && \
     pip3 install tensorflow[and-cuda] tensorrt && \
+    pip3 install -r $base_path/kohya_ss/requirements.txt
 deactivate
 
 
