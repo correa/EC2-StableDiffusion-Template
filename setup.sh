@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # disable the restart dialogue and install several packages
 sudo sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
@@ -12,6 +13,7 @@ sudo apt install cuda -y
 sudo apt autoremove -y
 
 base_path="/home/ubuntu"
+script_path="$(cd "$(dirname "$0")" && pwd)"
 
 cd $base_path
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
@@ -75,4 +77,12 @@ pip3 install -U --no-cache-dir jupyterlab \
         ipywidgets \
         gdown
 
-chown -R ubuntu:ubuntu /home/ubuntu/
+sudo cp $script_path/systemd/jupyterlab-ubuntu.service
+sudo systemctl daemon-reload
+sudo systemctl enable jupyterlab-ubuntu.service
+sudo systemctl start jupyterlab-ubuntu.service
+
+chown -R ubuntu:ubuntu $base_path
+if [ "$EUID" -ne 0 ]; then
+    chown -R ubuntu:ubuntu $base_path
+fi
