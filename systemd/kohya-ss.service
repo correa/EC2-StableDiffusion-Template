@@ -1,0 +1,12 @@
+[Unit]
+Description=Kohya Shadowsocks Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/kohya-ss
+ExecStart=/home/ubuntu/kohya-ss/gui.sh --listen 127.0.0.1 --server_port 3011 --headless
+
+[Install]
+WantedBy=multi-user.target
