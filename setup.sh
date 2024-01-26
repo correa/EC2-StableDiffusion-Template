@@ -69,6 +69,7 @@ pip3 install -U --no-cache-dir jupyterlab \
         jupyterlab_widgets \
         ipykernel \
         ipywidgets \
+        jupyter-archive \
         gdown
 
 sudo cp $script_path/systemd/jupyterlab-ubuntu.service /etc/systemd/system/
