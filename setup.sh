@@ -56,7 +56,7 @@ wget -q -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co
 wget -q -P stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/dreamlike-art/dreamlike-photoreal-2.0/resolve/main/dreamlike-photoreal-2.0.safetensors &
 
 # install Koya_ss
-git clone https://github.com/bmaltais/kohya_ss.git
+git clone --recursive https://github.com/bmaltais/kohya_ss.git
 python3 -m venv --system-site-packages $base_path/kohya_ss/venv && \
     source $base_path/kohya_ss/venv/bin/activate && \
     pip3 install torch torchvision torchaudio xformers && \
