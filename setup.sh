@@ -64,6 +64,7 @@ python3 -m venv --system-site-packages $base_path/kohya_ss/venv && \
     pip3 install -r $base_path/kohya_ss/requirements.txt
 deactivate
 
+cp -l $base_path/stable-diffusion-webui/models/Stable-diffusion/* $base_path/kohya_ss/models
 
 pip3 install -U --no-cache-dir jupyterlab \
         jupyterlab_widgets \
