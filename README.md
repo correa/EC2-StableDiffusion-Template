@@ -11,3 +11,8 @@ Just clone this repository on the newly spawned G4DN, G5 or P3 Instance and run 
 
 Suggested SSH:
 ssh -L 8888:127.0.0.1:8888 -L 3010:127.0.0.1:3010 -i mysecretkey.pem ubuntu@instanceAddress
+
+# Control the services:
+
+sudo systemctl start kohya-ss.service
+sudo systemctl start jupyterlab-ubuntu.service
